@@ -35,8 +35,8 @@ describe Air::Parse do
     expect(stairs[2].stairs.size).to be 2
     expect(stairs[3].stairs.size).to be 4
 
-    array = stairs[3].stairs.map(&:line)
-    expect(array).to pose {
+    a = stairs[3].stairs.map(&:line)
+    expect(a).to pose {
       is_a Array
       key 0, '@override'
       key 1, 'Widget build(BuildContext context)'

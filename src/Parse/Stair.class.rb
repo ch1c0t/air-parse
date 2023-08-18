@@ -1,23 +1,12 @@
 using SpacePrefix
-
-class << self
-  def from lines, at: 0
-    at += 1 until lines[at] != "\n"
-    new lines, at: at
-  end
-end
-
-attr_reader :start_at, :end_at, :space_prefix
-
-def stairs
-  @stairs ||= []
-end
+include Public
+extend From
 
 def initialize lines, at: 0
   @start_at, @lines = at, lines
 
   next_index = at + 1
-  @space_prefix, next_line = lines[at].space_prefix, lines[next_index]
+  next_line = lines[next_index]
 
   if next_line && (next_line.space_prefix - space_prefix) == 2
     until next_line.space_prefix <= space_prefix
@@ -33,12 +22,4 @@ def initialize lines, at: 0
   else
     @end_at = at
   end
-end
-
-def line
-  @line ||= @lines[@start_at].chomp.strip
-end
-
-def leaf?
-  stairs.empty?
 end
