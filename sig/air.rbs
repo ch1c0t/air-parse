@@ -1,0 +1,4 @@
+module Air
+  def self.parse_file: (String path) -> Array[Parse::Stair] 
+  def self.parse: (String source) -> Array[Parse::Stair]
+end

@@ -1,0 +1,8 @@
+module Air::Parse::Stair
+  attr_reader start_at: Integer
+  attr_reader end_at: Integer
+  attr_reader space_prefix: Integer
+  def stairs: -> Array[Stair]
+  def line: -> String
+  def leaf?: -> bool
+end
